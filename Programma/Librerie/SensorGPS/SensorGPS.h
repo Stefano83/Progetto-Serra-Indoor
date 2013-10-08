@@ -34,7 +34,7 @@ class SensorGPS
 	
  private:
 	
-	boolean started; // variabile si stato
+	bool started; // variabile di stato
      
 	
 };

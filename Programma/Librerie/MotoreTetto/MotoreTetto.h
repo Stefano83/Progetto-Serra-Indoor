@@ -16,7 +16,7 @@ class MotoreTetto
 	
  public:
 	// Costruttore
-     MotoreTetto(int pinDir, int stepperPin);
+     MotoreTetto(int pinDir, int stepperPin,int vel);
 	// Metodo che avvia il motore con una certa direzione di rotazione e per un numero di passi definito in base alla distanza da chiudere
      void avvioMotore(bool); 
 	
@@ -26,6 +26,7 @@ class MotoreTetto
 	
      int _pinDir;
 	 int _stepperPin;
+	 int _vel;
 	 int passi;
 	
 };

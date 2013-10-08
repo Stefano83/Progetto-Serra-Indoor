@@ -94,7 +94,7 @@ float trasformazioneTempo (char * time)
 
 {
 	float t;
-	// TRsformazione di ogni singolo carattere in float e poi modificato in base alla posizione da occupare nell'orario
+	// Trasformazione di ogni singolo carattere in float e poi modificato in base alla posizione da occupare nell'orario
 	t= ((float)(time[8] - '0')*10) + ((float)(time[9] - '0')) + ((float)(time[10] - '0')/10) + ((float)(time[11] - '0')/100);
 	Serial.println((String) t);
 	return t;

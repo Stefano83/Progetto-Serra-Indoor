@@ -6,7 +6,7 @@
 	
 Irrigatore::Irrigatore(int pinIrrig)
 {
-pinMode(pinIrrig, OUTPUT); // imposto il pinIrrig come OUTPUT in particolare il pin digitale 1
+pinMode(pinIrrig, OUTPUT); // imposto il pinIrrig come OUTPUT in particolare il pin digitale 9
 _pinIrrig=pinIrrig;
 }	
 

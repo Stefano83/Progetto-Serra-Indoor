@@ -19,7 +19,7 @@ class GestioneUmid
      GestioneUmid();
 	 // Legge e controlla il valore di umidità del sensore e in base al valore letto può:
 	 // chiudere il tetto o inviare messaggio di approvazione o non fa niente
-	 void ControlloUmid(int &, boolean &, boolean &, boolean &);
+	 void ControlloUmid(int , int , int , int ,int &, bool &, bool &, bool &);
 	 
 	
     

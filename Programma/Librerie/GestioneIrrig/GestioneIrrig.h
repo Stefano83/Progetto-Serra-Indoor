@@ -19,14 +19,14 @@ class GestioneIrrig
      GestioneIrrig();
 	 // Legge e controlla il valore di umidità dal sensore e in base al valore letto può:
 	 // spegnere l'irrigazione
-	 void controlloIrrig(int &, boolean &, char *);
+	 void controlloIrrig(int , int &, bool &, char *);
 	 
 	
     
 	
  private:
  
- boolean irrig_av; // variabile di stato che indica se l'irrigazione è in corso
+ bool irrig_av; // variabile di stato che indica se l'irrigazione è in corso
  int UMIDTERR_MAX3; // valore di umidità massimo oltre il quale si chiude il tetto
  float ORARIO_IN; // Orario dopo il quale è possibile far partire l'irrigazione
  float ORARIO_FIN; // Orario entro il quale è possibile far partire l'irrigazione

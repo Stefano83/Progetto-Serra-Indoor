@@ -16,6 +16,6 @@ void SensorUmid::letturaUT(int & umid)
 {
 	umid = analogRead(_pinUT);
 	Serial.print("Umidità Terreno: "); // stampo sulla seriale valore di umidità del terreno appena letto
-	Serial.println(umidTerr);
+	Serial.println(umid);
 	delay(100);
 }

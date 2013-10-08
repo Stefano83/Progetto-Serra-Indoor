@@ -16,10 +16,10 @@ class GestioneTemp
 	
  public:
 	 // Costruttore: non prende niente in input mentre come output stabilisce i valori da confrontare con il valore letto dal sensore
-     GestioneTemp();
+         GestioneTemp();
 	 // Legge e controlla il valore di umidità deal sensore e in base al valore letto può:
 	 // chiudere il tetto o inviare messaggio di approvazione o non fa niente
-	 void ControlloTemp(float &, float &, boolean &, boolean &);
+	 void ControlloTemp(int , int , int , int, int &, float &, bool &, bool &);
 	 
 	
     
