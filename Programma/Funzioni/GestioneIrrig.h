@@ -19,7 +19,7 @@ class GestioneIrrig
      GestioneIrrig();
 	 // Legge e controlla il valore di umidità dal sensore e in base al valore letto può:
 	 // spegnere l'irrigazione
-	 void controlloIrrig(int , int &, bool &, char *);
+	 void controlloIrrig(int, int, int &, bool &, char *);
 	 
 	
     

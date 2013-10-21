@@ -9,12 +9,10 @@ Saranno visualizzati i dati forniti dai sensori e l'eventuale azionamento dell'i
 #include <Ethernet.h>
 
 /* 
-Dichiaro l'indirizzo MAC del nostro Arduino e l'indirizzo IP locale. 
-Inserisco valori di esempio che andranno modificati in seguito. 
+Dichiaro l'indirizzo MAC del nostro Arduino con valori di esempio che andranno modificati in seguito. 
 */
 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-// IPAddress ip (192,168,1,177);
 
 // Inizializzo la libreria Ethernet con l'indirizzo IP e la porta predefinita per l'HTTP
 
@@ -65,12 +63,12 @@ void setup() {
   }
   Serial.println();
 }
- /* 
+ 
   Ethernet.begin(mac, ip);
   server.begin();
   Serial.print("L'indirizzo IP del server è: ");
   Serial.println(Ethernet.localIP());
-}*/
+}
 
 // Fine blocco setup
 

@@ -1,7 +1,7 @@
 #include <wprogram.h>
 #include "SensorUmid.h"
 #include "GestioneIrrig.h"
-//#include "SensorGPS.h"
+#include "SensorGPS.h"
 #include "Irrigatore.h"
 #include <Arduino.h>
 #include <SoftwareSerial.h>
@@ -12,7 +12,7 @@ GestioneIrrig::GestioneIrrig()
 {
 	Serial.begin(9600); // configuro la seriale
 	irrig_av=false;
-    UMIDTERR_MAX3=650;
+        UMIDTERR_MAX3=650;
 	ORARIO_IN=18.00;
 	ORARIO_FIN=19.30;
 }	
@@ -23,7 +23,7 @@ void GestioneIrrig::controlloIrrig(int pinIrrig, int pinUT, int & umid, bool & i
 {
 	if(!irrig_av)
 	{
-/*    SensorGPS sensorGPS;
+        SensorGPS sensorGPS;
 	  sensorGPS.letturaTempo(time);  // lettura del valore di tempo
 	  float t = sensorGPS.trasformazioneTempo(time); // trasformo alcuni pezzi(quelli che equivalgono a ore e minuti) dell'array di caratteri in float
 		// Controllo se sono nella fascia orario prestabilita per l'irrigazione e se l'irrigazione non sia stata già avviata
@@ -37,7 +37,7 @@ void GestioneIrrig::controlloIrrig(int pinIrrig, int pinUT, int & umid, bool & i
 		else 
 		  {
 			Serial.println("FASCIA ORARIA NON RISPETTATA: IRRIGAZIONE NON INIZIATA");
-		  }*/
+		  }
 		}
 		
 	

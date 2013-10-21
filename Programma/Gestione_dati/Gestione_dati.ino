@@ -52,9 +52,9 @@ void loop()
 {
   controlloUT();
   controlloTA();
-  //controlloSMS();
-  //controlloIrrig();
-  //delay(600000);
+  controlloSMS();
+  controlloIrrig();
+  delay(600000);
   delay(1000);
 }
 
@@ -69,7 +69,7 @@ void controlloUT()
   delay(1000);
   if(umid > UMIDTERR_MAX && !tetto)  // controllo se l'umidità rilevata è dentro un certo range altrimenti passo il comando alla funzione di chiusura del tetto
   {
-     //output.Tetto(dir, passi);
+     output.Tetto(dir, passi);
      Serial.println("TETTO IN CHIUSURA");
      dir=false;
      tetto=true;
@@ -77,7 +77,7 @@ void controlloUT()
   
   else if(umid < UMIDTERR_MIN && !inviato)
   {
-      //inviato = output.invioSMS(numero, messaggio);
+      inviato = output.invioSMS(numero, messaggio);
       Serial.println((String) numero);
       Serial.println((String) messaggio);
       Serial.println("SMS INVIATO");
@@ -94,14 +94,14 @@ void controlloTA()
   if(temp > TEMP_MAX || temp < TEMP_MIN && !tetto)  // controllo se la temperatura rilevata è dentro un certo range altrimenti passo il comando alla funzione di chiusura del tetto
   {
     Serial.println("TETTO IN CHIUSURA");
-     //output.Tetto(dir, passi);
+     output.Tetto(dir, passi);
      dir=false;
      tetto=true;
   }
   else if (temp < TEMP_MAX2  && temp > TEMP_MIN2 && umid < UMIDTERR_MAX2 && tetto) // se il tetto è chiuso e la temperatura è compresa tra 10 e 30 gradi e l'umidità del terreno è minore di 700 allora il tetto è riaperto
   {
     Serial.println("TETTO IN APERTURA");
-    //output.Tetto(dir, passi);  
+    output.Tetto(dir, passi);  
     dir=true;
     tetto=false;
   }

@@ -29,7 +29,7 @@ void GestioneUmid::ControlloUmid(int pinUT, int stepperPin, int pinDir, int vel,
   
   else if(umid < UMIDTERR_MIN && !inviato) // controllo se l'umidità rilevata è sopra un certo valore altrimenti invio messaggio di approvazione irrigazione
   {
-//      inviato = gestioneSMS.invioSMS();  // invio messaggio di approvazione irrigazione
+   inviato = gestioneSMS.invioSMS();  // invio messaggio di approvazione irrigazione
   }
 }
 

@@ -10,22 +10,20 @@
 #include "GestioneTemp.h"
 #include "GestioneUmid.h"
 
-
-
 // Costruttori
+
 SensorUmid sensorUmid(A0);
 SensorTemp sensorTemp(6);
 SensorGPS sensorGPS();
-Irrigatore irrigatore(1);
-MotoreTetto motoreTetto(7,8);
 GestioneIrrig gestioneIrrig();
 GestioneSMS gestioneSMS();
 GestioneTemp gestioneTemp();
-GestioneUmid gestioneUmid();
-
-
+GestioneUmid gestioneUmid(); 
+MotoreTetto motoreTetto (7,8,50);
+Irrigatore irrigatore (9);
 
 // Variabili
+
 float temp; // temperatura dell'aria
 int umid;  // umidità del terreno
 char lon[10];   // longitudine
@@ -33,6 +31,7 @@ char lat[10];   // latitudine
 char time[15];  // tempo
 
 // Variabili di stato
+
 boolean irrig=false; // approvazione di irrigazione
 boolean irriv_av=false;  // irrigazione in corso
 boolean tetto=false;  // tetto aperto
@@ -40,13 +39,11 @@ boolean inviato=false; // nessun messaggio è stato inviato senza risposta
 boolean risposto=false;
 boolean dir=true; // direzione di rotazione oraria del motore cioè nella direzione che serve a chiudere il tetto
 
-
 void setup()
 {}
 
+void loop() {
 
-void loop()
-{
   GestioneUmid.controlloUmid(umid, tetto, inviato, dir);
   GestioneTemp.controlloTemp(umid, temp, tetto, dir);
   
@@ -57,4 +54,9 @@ void loop()
   {GestioneIrrig.controlloIrrig(umid, irrig, time);}
   
   delay(600000);
+*/
+irrigatore.avvioIrrigatore ();
+delay (1000);
+motoreTetto.avvioMotore (dir);
 }
+
