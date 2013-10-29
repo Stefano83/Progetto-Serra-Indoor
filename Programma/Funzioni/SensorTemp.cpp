@@ -1,4 +1,5 @@
-#include "DHT11.h"
+#include <DHT11.h>
+
 #include <wprogram.h>
 #include "SensorTemp.h"
 #include <SoftwareSerial.h>

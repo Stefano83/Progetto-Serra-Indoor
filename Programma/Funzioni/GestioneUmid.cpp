@@ -1,6 +1,7 @@
 #include <wprogram.h>
 #include "SensorUmid.h"
 #include "GestioneUmid.h"
+#include "GestioneSMS.h"
 #include "MotoreTetto.h"
 #include <Arduino.h>
 #include <SoftwareSerial.h>
@@ -15,7 +16,7 @@ UMIDTERR_MIN=200;
 }	
 
 
-void GestioneUmid::ControlloUmid(int pinUT, int stepperPin, int pinDir, int vel, int & umid, bool & tetto, bool & inviato, bool & dir)
+void GestioneUmid::ControlloUmid(int pinUT, int stepperPin, int pinDir, int vel, int & umid, char * lon, char * lat, bool & dir, bool & tetto, bool & inviato, bool & risposto)
 {
   SensorUmid sensorUmid(pinUT);
   sensorUmid.letturaUT(umid);  // lettura del valore di umidità del terreno
@@ -29,7 +30,8 @@ void GestioneUmid::ControlloUmid(int pinUT, int stepperPin, int pinDir, int vel,
   
   else if(umid < UMIDTERR_MIN && !inviato) // controllo se l'umidità rilevata è sopra un certo valore altrimenti invio messaggio di approvazione irrigazione
   {
-   inviato = gestioneSMS.invioSMS();  // invio messaggio di approvazione irrigazione
+   GestioneSMS gestioneSMS;
+   inviato = gestioneSMS.invioSMS(inviato, risposto, lon, lat);  // invio messaggio di approvazione irrigazione
   }
 }
 

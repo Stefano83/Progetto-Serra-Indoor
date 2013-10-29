@@ -16,7 +16,7 @@ class GestioneIrrig
 	
  public:
 	 // Costruttore: non prende niente in input mentre come output stabilisce i valori di umidità del terreno da confrontare per spegnere l'irrigatore
-     GestioneIrrig();
+         GestioneIrrig();
 	 // Legge e controlla il valore di umidità dal sensore e in base al valore letto può:
 	 // spegnere l'irrigazione
 	 void controlloIrrig(int, int, int &, bool &, char *);

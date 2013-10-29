@@ -3,13 +3,18 @@ Creazione web server tramite Ethernet Shield.
 Saranno visualizzati i dati forniti dai sensori e l'eventuale azionamento dell'irrigatore.        
 */
 
-// Includo le librerie per la gestione della rete
+// Includo le librerie per la gestione della rete e della scheda SD
 
 #include <SPI.h>
 #include <Ethernet.h>
+#include <SD.h>
+
+// Creo un oggetto che rappresenta il file html in cui saranno memorizzati i dati
+
+File htmlFile;
 
 /* 
-Dichiaro l'indirizzo MAC del nostro Arduino con valori di esempio che andranno modificati in seguito. 
+Dichiaro l'indirizzo MAC del nostro Arduino con valori di esempio che andranno modificati
 */
 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
@@ -51,6 +56,13 @@ void setup() {
     Serial.println("Impossibile configurare Ethernet tramite DHCP");
     for(;;)
       ;
+  }    
+    
+  // Controllo che la scheda SD sia attiva
+  
+    if (!SD.begin(4)) { 
+    return; 
+    
   }
   
   // Visualizza indirizzo IP locale
@@ -62,9 +74,9 @@ void setup() {
     Serial.print("."); 
   }
   Serial.println();
-}
+
  
-  Ethernet.begin(mac, ip);
+  Ethernet.begin(mac);
   server.begin();
   Serial.print("L'indirizzo IP del server è: ");
   Serial.println(Ethernet.localIP());
@@ -165,5 +177,19 @@ void loop() {
 
     client.stop();
     Serial.println("Client disconnesso");
+  }
+}
+
+// Metodo che legge i dati dalla SD Card e li scrive sul file del client
+
+void lettura_file (char* page_html, EthernetClient client)
+{
+  htmlFile = SD.open (page_html);
+  if (htmlFile) {
+    while (htmlFile.available()) {
+        client.write(htmlFile.read());
+    }
+    // Chiusura file
+    htmlFile.close();
   }
 }

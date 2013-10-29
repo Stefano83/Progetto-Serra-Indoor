@@ -1,6 +1,6 @@
 #include <wprogram.h>
 #include "SensorTemp.h"
-//#include "GestioneSD.h"
+#include "GestioneSD.h"
 #include "GestioneTemp.h"
 #include "MotoreTetto.h"
 #include <Arduino.h>
